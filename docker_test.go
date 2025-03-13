@@ -578,5 +578,6 @@ func runCmdWithRetries(t *testing.T, task func() error) {
 
 		},
 	}
+
 	assert.NoError(t, executor.Execute())
 }
