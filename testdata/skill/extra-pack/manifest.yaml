@@ -1,0 +1,9 @@
+name: extra-pack
+namespace: jfrog
+version: 1.0.0
+agent: cursor
+contents:
+  skills: 1
+  rules: 1
+  commands: 1
+  agents_md: false

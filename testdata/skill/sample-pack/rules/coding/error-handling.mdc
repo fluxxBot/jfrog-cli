@@ -1,0 +1,12 @@
+---
+description: Error handling standards for Go projects
+alwaysApply: true
+---
+# Error Handling
+
+## Rules
+
+- Always check returned errors
+- Wrap errors with context using `fmt.Errorf("context: %w", err)`
+- Use sentinel errors for expected error conditions
+- Log errors at the point of handling, not at the point of creation

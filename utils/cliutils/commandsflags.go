@@ -112,6 +112,10 @@ const (
 	EditConfig   = "config-edit"
 	DeleteConfig = "delete-config"
 
+	// Skill commands keys
+	SkillInstall = "skill-install"
+	SkillPublish = "skill-publish"
+
 	// Project commands keys
 	InitProject = "project-init"
 
@@ -599,6 +603,15 @@ const (
 	Revision    = "revision"
 	RepoType    = "repo-type"
 	EtagTimeout = "etag-timeout"
+
+	// Skill flags
+	skillRepo         = "skill-repo"
+	skillRulesOnly    = "rules-only"
+	skillSkillsOnly   = "skills-only"
+	skillCommandsOnly = "commands-only"
+	skillCategory     = "category"
+	skillNoAgents     = "no-agents"
+	skillPath         = "skill-path"
 )
 
 var flagsMap = map[string]cli.Flag{
@@ -1767,6 +1780,34 @@ var flagsMap = map[string]cli.Flag{
 		Name:  RepoType,
 		Usage: "[Default: model] Type of repository. Can be 'model', 'dataset'.` `",
 	},
+	skillRulesOnly: cli.BoolFlag{
+		Name:  skillRulesOnly,
+		Usage: "[Default: false] Install only rules.` `",
+	},
+	skillSkillsOnly: cli.BoolFlag{
+		Name:  skillSkillsOnly,
+		Usage: "[Default: false] Install only skills.` `",
+	},
+	skillCommandsOnly: cli.BoolFlag{
+		Name:  skillCommandsOnly,
+		Usage: "[Default: false] Install only commands.` `",
+	},
+	skillCategory: cli.StringFlag{
+		Name:  skillCategory,
+		Usage: "[Optional] Install only a specific category subfolder (e.g. incident-analysis).` `",
+	},
+	skillNoAgents: cli.BoolFlag{
+		Name:  skillNoAgents,
+		Usage: "[Default: false] Skip installing AGENTS.md to project root.` `",
+	},
+	skillPath: cli.StringFlag{
+		Name:  skillPath,
+		Usage: "[Optional] Path to the .cursor/ directory to publish (defaults to .cursor/ in current directory).` `",
+	},
+	skillRepo: cli.StringFlag{
+		Name:  repo,
+		Usage: "[Mandatory] Artifactory repository name to install from or publish to.` `",
+	},
 }
 
 var commandFlags = map[string][]string{
@@ -2117,6 +2158,12 @@ var commandFlags = map[string][]string{
 	},
 	Setup: {
 		serverId, url, user, password, accessToken, sshPassphrase, sshKeyPath, ClientCertPath, ClientCertKeyPath, Project, setupRepo,
+	},
+	SkillInstall: {
+		serverId, skillRepo, skillRulesOnly, skillSkillsOnly, skillCommandsOnly, skillCategory, skillNoAgents,
+	},
+	SkillPublish: {
+		serverId, skillRepo, skillPath,
 	},
 }
 

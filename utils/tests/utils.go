@@ -71,6 +71,7 @@ var (
 	TestConan                 *bool
 	TestHelm                  *bool
 	TestHuggingFace           *bool
+	TestSkill                 *bool
 	TestPlugins               *bool
 	TestXray                  *bool
 	TestAccess                *bool
@@ -111,6 +112,7 @@ func init() {
 	TestConan = flag.Bool("test.conan", false, "Test Conan")
 	TestHelm = flag.Bool("test.helm", false, "Test Helm")
 	TestHuggingFace = flag.Bool("test.huggingface", false, "Test HuggingFace")
+	TestSkill = flag.Bool("test.skill", false, "Test Skill")
 	TestPlugins = flag.Bool("test.plugins", false, "Test Plugins")
 	TestXray = flag.Bool("test.xray", false, "Test Xray")
 	TestAccess = flag.Bool("test.access", false, "Test Access")

@@ -1,0 +1,9 @@
+name: pub-pack
+namespace: testns
+version: 2.0.0
+agent: cursor
+contents:
+  skills: 2
+  rules: 2
+  commands: 2
+  agents_md: false

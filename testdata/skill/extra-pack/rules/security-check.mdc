@@ -1,0 +1,4 @@
+---
+description: Security check rule
+---
+Always validate user input before processing.

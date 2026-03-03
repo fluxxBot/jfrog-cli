@@ -1,0 +1,17 @@
+---
+description: Coding style guidelines for Go projects
+alwaysApply: true
+---
+# Style Guide
+
+## Formatting
+
+- Run `go fmt ./...` before commit
+- Use `goimports` for import ordering
+- Keep functions under 50 lines where possible
+
+## Naming
+
+- Use camelCase for unexported identifiers
+- Use PascalCase for exported identifiers
+- Prefer descriptive names over abbreviations

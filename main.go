@@ -40,6 +40,7 @@ import (
 	"github.com/jfrog/jfrog-cli/missioncontrol"
 	"github.com/jfrog/jfrog-cli/pipelines"
 	"github.com/jfrog/jfrog-cli/plugins"
+	"github.com/jfrog/jfrog-cli/skill"
 	"github.com/jfrog/jfrog-cli/plugins/utils"
 	"github.com/jfrog/jfrog-cli/utils/cliutils"
 	"github.com/jfrog/jfrog-client-go/http/httpclient"
@@ -264,6 +265,12 @@ func getCommands() ([]cli.Command, error) {
 			Aliases:     []string{"c"},
 			Usage:       "Server configurations commands.",
 			Subcommands: config.GetCommands(),
+			Category:    commandNamespacesCategory,
+		},
+		{
+			Name:        cliutils.CmdSkill,
+			Usage:       "AI agent skill management commands.",
+			Subcommands: skill.GetCommands(),
 			Category:    commandNamespacesCategory,
 		},
 		{
